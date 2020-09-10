@@ -1,3 +1,5 @@
+use bgDB
+go
 --game表查询所有列的存储过程
 create proc Game_SelectWhere
 as

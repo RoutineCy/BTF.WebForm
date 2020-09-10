@@ -9,6 +9,7 @@ namespace BiuGame后台管理系统
 {
     public partial class index : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             var name = Request.QueryString["name"];
