@@ -6,13 +6,16 @@ as
 select Studio.sName,GType.name,Game.* from Game,GType,Studio where Game.gTid=GType.id and Game.gSId=Studio.id
 
 exec Game_SelectWhere
+go
 
 --查询购买记录
 create proc Gorder_Select
 as
 select Game.gName,Userinfo.userName,Gorder.* from Gorder,Game,Userinfo where Game.id=Gorder.oGid and Userinfo.id=Gorder.oUid
+go
 
 exec Gorder_Select
+go
 
 --类别表添加
 create proc GType_Insert
@@ -21,14 +24,15 @@ create proc GType_Insert
 )
 as
 insert into GType values(@name)
+go
 
 --类别表查询全部
 create proc GType_Select
 as
 select * from GType
-
+go
 exec GType_Select
-
+go
 
 
 --购买记录删除
@@ -40,13 +44,15 @@ as
 delete from Gorder where id = @id
 
 exec Gorder_Delete 2
+go
 
 --购买记录查询
 create proc Groder_Select
 as
 select Game.gName,Userinfo.userName,Gorder.* from Gorder,Game,Userinfo where Game.id=Gorder.oGid and Userinfo.id=Gorder.oUid
-
+go
 exec Groder_Select
+go
 
 --game游戏表条件查询
 create proc Game_Select
@@ -81,8 +87,7 @@ as
 select * from(
 select ROW_NUMBER() over(order by id) as RomNum , * from [Game]
 ) as t where t.RomNum between 1 and 5
-USE bgDB
-GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -119,7 +124,7 @@ SET @StrWhere=''
 		set @strWhere=@strWhere+' and s1.gName like ''%'+@Game_gName+'%'''
 	end
 
-SET @StrSql=' select s3.sName,s2.name,s1.* from Game as s1,GType as s2,Studio as s3 where s1.gTid=s2.id and s1.gSId=s3.id  '+@strWhere
+SET @StrSql=' select count(*) from Game'+@strWhere
 
 EXEC sp_executesql @StrSql,N'@RowCount INT OUTPUT',@TotalCount OUTPUT  --获取数据总记录数
 
@@ -141,7 +146,11 @@ SET @StrSql='select * from(
 select ROW_NUMBER() over(order by id) as RomNum , * from [Game] where 1=1'+@strWhere+'
 ) as t where t.RomNum between '+CONVERT(NVARCHAR(32),((@PageIndex-1)*@PageSize+1))+' and '+CONVERT(NVARCHAR(32),(@PageIndex*@PageSize)) 
 
-EXEC sp_executesql @StrSql
+EXEC sp_executesql @StrSql 
+go
+
+declare @TotalCount int
+exec Game_Select 0,0,-1,'',3,5,@TotalCount output
+print @TotalCount
 
 --'select * from( select ROW_NUMBER() over(order by id) as RomNum , * from [Game] where 1=1'+@strWhere+' ) as t where t.RomNum between '+CONVERT(NVARCHAR(32),((@PageIndex-1)*@PageSize+1))+'  and '+CONVERT(NVARCHAR(32),(@PageIndex*@PageSize)) 
-
