@@ -144,3 +144,4 @@ select ROW_NUMBER() over(order by id) as RomNum , * from [Game] where 1=1'+@strW
 EXEC sp_executesql @StrSql
 
 --'select * from( select ROW_NUMBER() over(order by id) as RomNum , * from [Game] where 1=1'+@strWhere+' ) as t where t.RomNum between '+CONVERT(NVARCHAR(32),((@PageIndex-1)*@PageSize+1))+'  and '+CONVERT(NVARCHAR(32),(@PageIndex*@PageSize)) 
+
