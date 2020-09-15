@@ -29,11 +29,48 @@ namespace BiuGame后台管理系统.html
                 doplisttype.DataValueField = "id";
                 doplisttype.DataBind();
                 doplisttype.Items.Insert(0, new ListItem("全部", "0"));
+                GameList();
             }
 
         }
 
+        private void GameList()
+        {
+            int id = Convert.ToInt32(doplisttype.SelectedValue);
+            int sid = Convert.ToInt32(doplistPrice.SelectedValue);
+            string gNames = Convert.ToString(gameNAME.Text);
+            int gstate = Convert.ToInt32(Rbutton.SelectedValue);
+            //初始化类
+            Game_info game_Info = new Game_info()
+            {
+                gName = gNames,
+                gState = gstate,
+                gtid = id,
+                Sid = sid,
+            };
 
+            //调用分页的业务方法
+            int totalcount = 0;
+            List<Game_info> list = GameBLL.SelectProc(game_Info, Gamepager.CurrentPageIndex, Gamepager.PageSize, ref totalcount);
+
+            //给分页组件的总记录数属性赋值
+            Gamepager.RecordCount = totalcount;
+
+            //为Reapter组件数据源赋值
+            Repeater1.DataSource = list;
+            Repeater1.DataBind();
+
+
+
+
+
+
+
+
+
+
+
+        }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -59,21 +96,7 @@ namespace BiuGame后台管理系统.html
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(doplisttype.SelectedValue);
-            int sid = Convert.ToInt32(doplistPrice.SelectedValue);
-            string gNames = Convert.ToString(gameNAME.Text);
-            int gstate = Convert.ToInt32(Rbutton.SelectedValue);
-
-            Game_info game_Info = new Game_info()
-            {
-                gName = gNames,
-                gState = gstate,
-                gtid = id,
-                Sid = sid,
-            };
-
-            Repeater1.DataSource = GameBLL.SelectProc(game_Info);
-            Repeater1.DataBind();
+            GameList();
 
         }
     }

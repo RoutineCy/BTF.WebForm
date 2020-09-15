@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Game.aspx.cs" Inherits="BiuGame后台管理系统.html.product_Manage" %>
 
+<%@ Register TagPrefix="webdiyer" Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,17 +25,18 @@
     <script src="../js/HUpages.js" type="text/javascript"></script>
     <script src="../js/common.js" type="text/javascript"></script>
     <style type="text/css">
-       #rpt{
-           display:block;
-           margin:0 auto;
-           width:1000px;
-           height:auto;
-           text-align:center;
-       }
-       #rpt>table{
-           margin:0 auto;
-           width:100%;
-       }
+        #rpt {
+            display: block;
+            margin: 0 auto;
+            width: 1000px;
+            height: auto;
+            text-align: center;
+        }
+
+            #rpt > table {
+                margin: 0 auto;
+                width: 100%;
+            }
     </style>
     <script>
         $(function () {
@@ -55,10 +57,10 @@
                 <asp:ListItem Value="-1" Selected="True">全部</asp:ListItem>
             </asp:RadioButtonList>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 游戏分类：<asp:DropDownList ID="doplisttype" runat="server"></asp:DropDownList>
-        &nbsp;游戏厂商：
+            &nbsp;游戏厂商：
             <asp:DropDownList ID="doplistPrice" runat="server"></asp:DropDownList>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button2" runat="server" Text="查询" OnClick="Button2_Click"  />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Button2" runat="server" Text="查询" OnClick="Button2_Click" />
 
 
         </div>
@@ -85,54 +87,60 @@
                         <asp:Button ID="Button1" runat="server" Text="添加游戏" CssClass="btn button_btn btn-danger" OnClick="Button1_Click" />
                     </div>
                     <!--列表内容-->
-                     <div class="page_content clearfix mb15 table-module " id="rpt">
-                    <asp:Repeater runat="server" ID="Repeater1" OnItemCommand="Repeater1_ItemCommand">
-                        <HeaderTemplate>
-                            <table>
-                                <thead>
+                    <div class="page_content clearfix mb15 table-module " id="rpt">
+                        <asp:Repeater runat="server" ID="Repeater1" OnItemCommand="Repeater1_ItemCommand">
+                            <HeaderTemplate>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td>游戏ID </td>
+                                            <td>游戏分类</td>
+                                            <td>游戏厂商</td>
+                                            <td>游戏名</td>
+                                            <td>游戏价格</td>
+                                            <td>上下架状态</td>
+                                            <td>操作</td>
+                                        </tr>
+                                    </thead>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <tbody>
                                     <tr>
-                                        <td>游戏ID </td>
-                                        <td>游戏分类</td>
-                                        <td>游戏厂商</td>
-                                        <td>游戏名</td>
-                                        <td>游戏价格</td>
-                                        <td>上下架状态</td>
-                                        <td>操作</td>
+                                        <td>
+                                            <%# Eval("gtid") %>
+                                        </td>
+                                        <td>
+                                            <%# Eval("name") %>
+                                        </td>
+                                        <td>
+                                            <%# Eval("sName") %>
+                                        </td>
+                                        <td>
+                                            <%# Eval("gName") %>
+                                        </td>
+                                        <td>
+                                            <%# Eval("gPrice") %>$
+                                        </td>
+                                        <td>
+                                            <%# Convert.ToInt32(Eval("gState"))==0?"上架中":"已下架" %>
+                                        </td>
+                                        <td>
+                                            <asp:Button ID="Button2" runat="server" Text="删除" CommandName="_del" CommandArgument='<%# Eval("gtid") %>' OnClientClick='return confirm("是否删除该信息？")' />
+                                        </td>
                                     </tr>
-                                </thead>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <%# Eval("gtid") %>
-                                    </td>
-                                    <td>
-                                        <%# Eval("name") %>
-                                    </td>
-                                    <td>
-                                        <%# Eval("sName") %>
-                                    </td>
-                                    <td>
-                                        <%# Eval("gName") %>
-                                    </td>
-                                    <td>
-                                        <%# Eval("gPrice") %>$
-                                    </td>
-                                     <td>
-                                        <%# Convert.ToInt32(Eval("gState"))==0?"上架中":"已下架" %>
-                                    </td>
-                                    <td>
-                                        <asp:Button ID="Button2" runat="server" Text="删除" CommandName="_del" CommandArgument='<%# Eval("gtid") %>' OnClientClick='return confirm("是否删除该信息？")' />
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            </table>
-                        </FooterTemplate>
-                    </asp:Repeater>
-                </div>
+                                </tbody>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                </table>
+                            </FooterTemplate>
+                        </asp:Repeater>
+                        <webdiyer:AspNetPager ID="Gamepager" runat="server" UrlPaging="true" AlwaysShow="true"
+                            FirstPageText="首页" LastPageText="末页" 
+                            NextPageText="下一页" PrevPageText="上一页" CustomInfoHTML="目前是第%CurrentPageIndex%页 / 总共%PageCount%页"
+                            ShowCustomInfoSection="Right" PagingButtonSpacing="0px" NumericButtonCount="5"
+                            CssClass="anpager" CurrentPageButtonClass="cpb" Width="850px">
+                        </webdiyer:AspNetPager>
+                    </div>
                 </div>
             </div>
         </div>

@@ -78,7 +78,7 @@ namespace DAL
         //    return listSales;
 
         //}
-        public static List<Game_info> SelectProc(Game_info selectwhere)
+        public static List<Game_info> SelectProc(Game_info selectwhere,int PageIndex, int PageSize, ref int TotalCount)
         {
             //自定义sql查询语句
             string sql = "Game_Select";
@@ -87,8 +87,13 @@ namespace DAL
                 new SqlParameter ("@GType_id",selectwhere.gtid),
                 new SqlParameter ("@Studio_id",selectwhere.Sid),
                 new SqlParameter ("@Game_gState",selectwhere.gState),
-                new SqlParameter ("@Game_gName",selectwhere.gName==null?"":selectwhere.gName)
+                new SqlParameter ("@Game_gName",selectwhere.gName==null?"":selectwhere.gName),
+                new SqlParameter ("@PageIndex",PageIndex),
+                new SqlParameter ("@PageSize",PageSize),
+                new SqlParameter ("@TotalCount",TotalCount)
             };
+            //指明TotalCount 参数为输出类型
+            pams[6].Direction = ParameterDirection.Output;
 
             SqlDataReader sdr = DBHelper.ExecuteReaderProc(sql, pams);
 
@@ -111,8 +116,11 @@ namespace DAL
                     listSales.Add(dt);
 
                 }
+                sdr.Close();
+
+                //获取存储过程中TotalCount的值，一定在游标关闭之后！
+                TotalCount = Convert.ToInt32(pams[6].Value);
             }
-            sdr.Close();
             return listSales;
 
         }

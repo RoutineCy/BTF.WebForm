@@ -82,13 +82,16 @@ as
 	exec (@str)
 
 
-
+use bgDB
+go
 --存储过程分页
 select * from(
 select ROW_NUMBER() over(order by id) as RomNum , * from [Game]
 ) as t where t.RomNum between 1 and 5
 
 
+use bgDB
+go
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -128,7 +131,6 @@ SET @StrSql=' select count(*) from Game'+@strWhere
 
 EXEC sp_executesql @StrSql,N'@RowCount INT OUTPUT',@TotalCount OUTPUT  --获取数据总记录数
 
-
 IF (@PageIndex<1)
 BEGIN
 	SET @PageIndex=1;--如果当前页索引小于1，则显示首页数据
@@ -149,8 +151,8 @@ select ROW_NUMBER() over(order by id) as RomNum , * from [Game] where 1=1'+@strW
 EXEC sp_executesql @StrSql 
 go
 
-declare @TotalCount int
-exec Game_Select 0,0,-1,'',3,5,@TotalCount output
-print @TotalCount
+--declare @TotalCount int
+--exec Game_Select 0,0,-1,'',3,5,@TotalCount output
+--print @TotalCount
 
 --'select * from( select ROW_NUMBER() over(order by id) as RomNum , * from [Game] where 1=1'+@strWhere+' ) as t where t.RomNum between '+CONVERT(NVARCHAR(32),((@PageIndex-1)*@PageSize+1))+'  and '+CONVERT(NVARCHAR(32),(@PageIndex*@PageSize)) 
