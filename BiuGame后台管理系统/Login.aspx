@@ -27,6 +27,21 @@
           <script src="js/html5shiv.js" type="text/javascript"></script>
           <script src="js/css3-mediaqueries.js"  type="text/javascript"></script>
         <![endif]-->
+	<script type="text/javascript">
+		$(function () {
+			$("#btnLogin").click(function () {
+				var username = $("#username").val();
+				var userpwd = $("#userpwd").val();
+				$.post("/ashxx/Handler1.ashx", { "name": username, "pwd": userpwd }, function (msg) {
+					alert(msg);
+				});
+
+			});
+
+            
+
+		});
+    </script>
 	</head>
 <body class="login-layout Reg_log_style" id="loginstyle">
     <div class="logintop">
@@ -95,6 +110,7 @@
                                       <span class="lbl">保存密码</span>
                                   </label>
                                             <asp:Button ID="Button1" runat="server" Text=" 登  陆 "  class="login_btn" OnClick="Button1_Click" />
+                                            <input id="btnLogin" type="button" value="AJAX登录"  />
                                             <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label>
 											<%--<button type="button" class="login_btn" id="login_btn"> 登&nbsp;陆 </button>--%>
 										</div>
