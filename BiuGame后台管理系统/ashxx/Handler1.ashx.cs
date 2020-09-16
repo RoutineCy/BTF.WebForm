@@ -21,19 +21,19 @@ namespace BiuGame后台管理系统.ashxx
 
             string msg = $"输入姓名：{name},密码：{pwd}";
 
-            //Model.administrators admin = administratorsBLL.Select(name,pwd);
-            //int num = 0;
-            //if (admin == null)
-            //{
-            //    num = 1;
-            //}
-            //else
-            //{
-            //    num = 0;
-            //}
-
-            context.Response.ContentType = "text/plain";
-            context.Response.Write(msg);
+            Model.administrators admin = administratorsBLL.Select(name, pwd);
+            int num = 0;
+            if (admin == null)
+            {
+                context.Response.ContentType = "text/plain";
+                context.Response.Write("账号或密码错误");
+            }
+            else
+            {
+                num = 1;
+                context.Response.ContentType = "text/plain";
+                context.Response.Write(num);
+            }
         }
 
         public bool IsReusable

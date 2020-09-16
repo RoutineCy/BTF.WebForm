@@ -32,8 +32,14 @@
 			$("#btnLogin").click(function () {
 				var username = $("#username").val();
 				var userpwd = $("#userpwd").val();
-				$.post("/ashxx/Handler1.ashx", { "name": username, "pwd": userpwd }, function (msg) {
-					alert(msg);
+				$.post("/ashxx/Handler1.ashx", { "name": username, "pwd": userpwd }, function (num) {
+					if (num > 0) {
+						window.location.href = "index.aspx?name=" + username;
+					}
+					else {
+						alert("账号或密码错误！")
+                    }
+                     
 				});
 
 			});

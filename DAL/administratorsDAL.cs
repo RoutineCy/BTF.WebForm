@@ -13,11 +13,11 @@ namespace DAL
     {
         public static administrators Select(string name, string pwd)
         {
-            string sql = "select * from administrators where Apassword=@Apassword and Aaccount=@Atname or Atname=@Atname and Apassword=@Apassword ";
+            string sql = "select * from administrators where aName=@aName and aPwd=@aPwd ";
             SqlParameter[] pams =
             {
-                new SqlParameter ("@Atname",name),
-                new SqlParameter ("@Apassword",pwd)
+                new SqlParameter ("@aName",name),
+                new SqlParameter ("@aPwd",pwd)
             };
             SqlDataReader reader = DBHelper.ExecuteReader(sql, pams);
 
