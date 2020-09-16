@@ -24,6 +24,25 @@
     <script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="../js/HUpages.js" type="text/javascript"></script>
     <script src="../js/common.js" type="text/javascript"></script>
+   <%-- <script type="text/javascript">
+        $(function () {
+            $(".delete").live("click", function () {
+                //删除提示
+                if (!confirm("确定删除？")) {
+                    return;
+                } else {
+                    var thtr = $(this);
+                    var id = thtr.attr("det");
+                    $.post("/Del.ashx", { id: id }, function (data) {
+                        if (data > 0) {
+                            alert("删除成功！");
+                            thtr.closest("tr").remove();
+                        }
+                    });
+                }
+            });
+        });
+    </script>--%>
     <style type="text/css">
        #rpt{
            display:block;
@@ -80,6 +99,7 @@
                                     </td>
                                     <td>
                                         <asp:Button ID="Button2" runat="server" Text="删除" CommandName="_del" CommandArgument='<%# Eval("id") %>' OnClientClick='return confirm("是否删除该信息？")' />
+
                                     </td>
                                 </tr>
                             </tbody>
