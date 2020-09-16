@@ -29,7 +29,7 @@ namespace BiuGame后台管理系统.html
                 doplisttype.DataValueField = "id";
                 doplisttype.DataBind();
                 doplisttype.Items.Insert(0, new ListItem("全部", "0"));
-                GameList();
+                //GameList();
             }
 
         }
