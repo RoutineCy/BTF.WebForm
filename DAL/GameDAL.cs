@@ -125,6 +125,44 @@ namespace DAL
 
         }
 
+        public static List<Game_info> Select(Game_info selectwhere)
+        {
+            //自定义sql查询语句
+            string sql = "SelectGame";
+            SqlParameter[] pams =
+            {
+                new SqlParameter ("@GType_id",selectwhere.gtid),
+                new SqlParameter ("@Studio_id",selectwhere.Sid),
+                new SqlParameter ("@Game_gState",selectwhere.gState),
+                new SqlParameter ("@Game_gName",selectwhere.gName==null?"":selectwhere.gName)
+            };
+
+            SqlDataReader sdr = DBHelper.ExecuteReaderProc(sql, pams);
+
+            List<Game_info> listSales = new List<Game_info>();
+
+            if (sdr.HasRows)
+            {
+                while (sdr.Read())
+                {
+                    Game_info dt = new Game_info()
+                    {
+                        gtid = Convert.ToInt32(sdr["id"]),
+                        Sid = Convert.ToInt32(sdr["gSId"]),
+                        gName = Convert.ToString(sdr["gName"]),
+                        gState = Convert.ToInt32(sdr["gState"]),
+                        gPrice = Convert.ToDouble(sdr["gPrice"]),
+                        name = Convert.ToString(sdr["name"]),
+                        sName = Convert.ToString(sdr["sName"])
+                    };
+                    listSales.Add(dt);
+
+                }
+                sdr.Close();
+            }
+            return listSales;
+
+        }
 
         public static int Delete(int id)
         {

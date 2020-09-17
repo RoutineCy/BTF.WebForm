@@ -55,7 +55,7 @@ exec Groder_Select
 go
 
 --game游戏表条件查询
-create proc Game_Select
+create proc SelectGame
 (
 	@GType_id int ,
 	@Studio_id int,

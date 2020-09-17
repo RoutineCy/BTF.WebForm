@@ -1,10 +1,10 @@
-﻿0<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="BiuGame后台管理系统.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="BiuGame后台管理系统.Login" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-		<meta charset="utf-8" />
+		<meta charset="utf-8" /> 
 		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
 		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />

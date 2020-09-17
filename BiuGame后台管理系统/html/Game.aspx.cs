@@ -62,14 +62,6 @@ namespace BiuGame后台管理系统.html
 
 
 
-
-
-
-
-
-
-
-
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -96,8 +88,25 @@ namespace BiuGame后台管理系统.html
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            GameList();
+            //GameList();
+            int id = Convert.ToInt32(doplisttype.SelectedValue);
+            int sid = Convert.ToInt32(doplistPrice.SelectedValue);
+            string gNames = Convert.ToString(gameNAME.Text);
+            int gstate = Convert.ToInt32(Rbutton.SelectedValue);
+            //初始化类
+            Game_info game_Info = new Game_info()
+            {
+                gName = gNames,
+                gState = gstate,
+                gtid = id,
+                Sid = sid,
+            };
+            List<Game_info> list = GameBLL.Select(game_Info);
 
+
+            //为Reapter组件数据源赋值
+            Repeater1.DataSource = list;
+            Repeater1.DataBind();
         }
     }
 }

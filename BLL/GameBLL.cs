@@ -14,6 +14,10 @@ namespace BLL
         {
             return GameDAL.Select();
         }
+        public static List<Game_info> Select(Game_info selectwhere)
+        {
+            return GameDAL.Select(selectwhere);
+        }
         public static List<Game_info> SelectProc(Game_info selectwhere, int PageIndex, int PageSize, ref int TotalCount)
         {
             return GameDAL.SelectProc(selectwhere, PageIndex, PageSize, ref TotalCount);
