@@ -34,7 +34,7 @@ namespace DAL
             //{
                 string sql = "delete from GType where id=" + id;
                 
-            return DBHelper.ExecuteNonQueryProc(sql);
+            return DBHelper.ExecuteNonQuery(sql);
             //}
         }
 
