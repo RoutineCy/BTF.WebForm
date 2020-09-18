@@ -3,6 +3,7 @@ using Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
@@ -32,14 +33,19 @@ namespace DAL
             //else
             //{
                 string sql = "delete from GType where id=" + id;
-                return DBHelper.ExecuteNonQueryProc(sql);
+                
+            return DBHelper.ExecuteNonQueryProc(sql);
             //}
         }
 
         public static int InsertProc(string name)
         {
             string sql = "GType_Insert";
-            return DBHelper.ExecuteNonQueryProc(sql);
+            SqlParameter[] pams =
+                {
+                   new SqlParameter ("@name",name)
+                };
+            return DBHelper.ExecuteNonQueryProc(sql, pams);
         }
 
     }
