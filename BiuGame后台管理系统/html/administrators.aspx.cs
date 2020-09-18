@@ -41,24 +41,10 @@ namespace BiuGame后台管理系统
             }
         }
 
-        protected void btnAdd_Click(object sender, EventArgs e)
+
+        protected void Button1_Click1(object sender, EventArgs e)
         {
-            //获取值
-            var sname = txtName.Text;
-            var spwd = txtPwd.Text;
-
-            //调用方法
-            if (administratorsBLL.Insert(sname, spwd) > 0)
-            {
-                Response.Write("<script>alert('添加成功！');");
-
-                Repeater1.DataSource = administratorsBLL.Select();
-                Repeater1.DataBind();
-            }
-
-
-
-
+            Response.Redirect("/html/Addadmin.aspx");
         }
     }
 }

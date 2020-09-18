@@ -6,6 +6,12 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <link href="../css/bksystem.css" rel="stylesheet" />
+    <style type="text/css">
+        *{
+             font-size:20px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">

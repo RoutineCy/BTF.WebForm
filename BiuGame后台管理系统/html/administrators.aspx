@@ -37,7 +37,7 @@
            width:100%;
        }
     </style>
-    <script>
+   <%-- <script>
         $(function () {
             $("table tr:even").css("background-color", "cyan");
             $("#add").hide();
@@ -45,7 +45,7 @@
                 $("#add").slideToggle(300);
             });
         })
-    </script>
+    </script>--%>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -55,15 +55,16 @@
                 <!--编辑内容-->
                 <div class="operation  mb15" style="">
                     <%--<asp:Button ID="btn1" runat="server" Text="新员工来啦！" CssClass="btn button_btn btn-danger" OnClick="Button1_Click" />--%>
-                    <input type="button" class="btn button_btn btn-danger" value="新员工来啦！" id="btn1" />
-                    <div id="add" style="text-align:center;">
+                    <%--<input type="button" class="btn button_btn btn-danger" value="新员工来啦！" id="btn1" />--%>
+                    <asp:Button ID="Button1" runat="server" CssClass="btn button_btn btn-danger" Text="新员工来啦！" OnClick="Button1_Click1" />
+                    <%--<div id="add" style="text-align:center;">
                         <asp:Label ID="Label1" runat="server" Text="员工账户："></asp:Label>
                         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                         <asp:Label ID="Label2" runat="server" Text="员工密码："></asp:Label>
                         <asp:TextBox ID="txtPwd" runat="server"></asp:TextBox>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnAdd" runat="server" Text="添加员工" CssClass="btn button_btn bg-deep-blue" OnClick="btnAdd_Click" />
-                    </div>
+                    </div>--%>
                 </div>
                 <!--列表内容-->
                 <div class="page_content clearfix mb15 table-module " id="rpt">

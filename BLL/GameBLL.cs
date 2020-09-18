@@ -1,10 +1,7 @@
-﻿using System;
+﻿using DAL;
+using Model;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using DAL;
-using Model;
 
 namespace BLL
 {
@@ -22,7 +19,7 @@ namespace BLL
         {
             return GameDAL.SelectProc(selectwhere, PageIndex, PageSize, ref TotalCount);
         }
-            public static int Delete(int id)
+        public static int Delete(int id)
         {
             return GameDAL.Delete(id);
         }

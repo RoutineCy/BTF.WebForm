@@ -102,6 +102,7 @@ namespace BiuGame后台管理系统.html
                 Sid = sid,
             };
             List<Game_info> list = GameBLL.Select(game_Info);
+            //List<Game_info> list = GameBLL.SelectProc(game_Info,1,5);
 
 
             //为Reapter组件数据源赋值

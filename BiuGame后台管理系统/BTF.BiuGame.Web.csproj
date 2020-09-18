@@ -61,6 +61,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="html\Addadmin.aspx" />
     <Content Include="html\AddGame.aspx" />
     <Content Include="html\AddStudio.aspx" />
     <Content Include="html\administrators.aspx" />
@@ -205,6 +206,13 @@
   <ItemGroup>
     <Compile Include="ashxx\Handler1.ashx.cs">
       <DependentUpon>Handler1.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="html\Addadmin.aspx.cs">
+      <DependentUpon>Addadmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="html\Addadmin.aspx.designer.cs">
+      <DependentUpon>Addadmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="html\AddGame.aspx.cs">
       <DependentUpon>AddGame.aspx</DependentUpon>
