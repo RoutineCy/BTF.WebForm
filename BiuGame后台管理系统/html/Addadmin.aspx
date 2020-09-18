@@ -16,12 +16,23 @@
              font-size:20px;
         }
     </style>
+    <script type="text/javascript">
+        $(function () {
+            var $cb = $("#cbShow");
+            $cb.click(function () {
+                if ($cb.attr("checked") == "checked") {
+                    $("#txtPwd").attr("TextMode", "SingleLine");
+                    $("#txtPwdOK").attr("TextMode", "SingleLine");
+                };
+            });
+        })
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
         <div style="width:100%; height:auto">
             <div id="add" style="text-align:center; margin:0 auto">
-                <table style="text-align:center; margin:0 auto; margin-top:280px;">
+                <table style="text-align:center; margin:0 auto; margin-top:50px;">
                     <tr>
                         <td>
 
@@ -77,7 +88,8 @@
                         <td colspan="3"><asp:Button ID="btnAdd" runat="server" Text="添加员工" CssClass="btn button_btn bg-deep-blue" OnClick="btnAdd_Click" />
                             &nbsp;&nbsp;
                             <asp:Button ID="Button1" runat="server" CssClass="btn button_btn btn-danger" Text="返回" CausesValidation="False" OnClick="Button1_Click" />
-                            <asp:CheckBox ID="cbShow" runat="server" OnCheckedChanged="cbShow_CheckedChanged" />显示密码
+                            <%--<asp:CheckBox ID="cbShow" runat="server" OnCheckedChanged="cbShow_CheckedChanged" />显示密码--%>
+                            <input type="checkbox" value="显示密码"  id="cbShow" />显示密码
                         </td>
                     </tr>
                 </table>

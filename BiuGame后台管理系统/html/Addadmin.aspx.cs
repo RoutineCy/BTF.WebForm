@@ -13,7 +13,7 @@ namespace BiuGame后台管理系统.html
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -39,16 +39,16 @@ namespace BiuGame后台管理系统.html
 
         protected void cbShow_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbShow.Checked)
-            {
-                txtPwdOK.TextMode = TextBoxMode.SingleLine;
-                txtPwd.TextMode = TextBoxMode.SingleLine;
-            }
-            else
-            {
-                txtPwdOK.TextMode = TextBoxMode.Password;
-                txtPwd.TextMode = TextBoxMode.Password;
-            }
+            //if (cbShow.Checked)
+            //{
+            //    txtPwdOK.TextMode = TextBoxMode.SingleLine;
+            //    txtPwd.TextMode = TextBoxMode.SingleLine;
+            //}
+            //else
+            //{
+            //    txtPwdOK.TextMode = TextBoxMode.Password;
+            //    txtPwd.TextMode = TextBoxMode.Password;
+            //}
         }
     }
 }
