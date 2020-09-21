@@ -31,7 +31,7 @@ namespace BiuGame后台管理系统.ashxx
             {
                 Model.administrators admin = administratorsBLL.Select(name, pwd);
                 int num = 0;
-
+            
                 if (admin == null)
                 {
                     context.Response.ContentType = "text/plain";

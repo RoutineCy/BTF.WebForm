@@ -11,6 +11,7 @@ namespace BiuGame后台管理系统.html
 {
     public partial class product_Manage : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

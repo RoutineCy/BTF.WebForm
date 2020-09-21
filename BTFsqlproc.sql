@@ -80,7 +80,7 @@ as
 	end
 	print @str
 	exec (@str)
-
+go
 
 use bgDB
 go
