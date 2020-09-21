@@ -344,56 +344,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="box-module" style="position:absolute;right:35px;bottom:25px" >
-                    <div class="box-title" >系统信息</div>
-                    <div class="box-content" id="box-contentthis">
-                        <table class="table table-striped table-hover">
-                            <tbody>
-                                <tr>
-                                    <td class="width30b">操作系统:</td>
-                                    <td>PC</td>
-                                </tr>
-                                <tr>
-                                    <td>服务器:</td>
-                                    <td>Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9</td>
-                                </tr>
-                                <tr>
-                                    <td>浏览器:</td>
-                                    <td>Chorme</td>
-                                </tr>
-                                <tr>
-                                    <td>PHP版本:</td>
-                                    <td>5.6.1</td>
-                                </tr>
-                                <tr>
-                                    <td>程序编码:</td>
-                                    <td>UTF-8</td>
-                                </tr>
-                                <tr>
-                                    <td>MySQL版本</td>
-                                    <td>5.5.40</td>
-                                </tr>
-                                <tr>
-                                    <td>当前操作者:</td>
-                                    <td>Admin</td>
-                                </tr>
-                                <tr>
-                                    <td>当前IP:</td>
-                                    <td>112.25.25.255 (广州市)</td>
-                                </tr>
-                                <tr>
-                                    <td>当前版本:</td>
-                                    <td>AlphaAdmin 1.0(20170803)</td>
-                                </tr>
-                                <tr>
-                                    <td>当前时间:</td>
-                                    <td>2017年9月26日 11:22:00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                
         </div>
     </form>
 </body>
