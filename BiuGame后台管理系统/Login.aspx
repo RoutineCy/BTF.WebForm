@@ -32,12 +32,14 @@
 			$("#btnLogin").click(function () {
 				var username = $("#username").val();
 				var userpwd = $("#userpwd").val();
-				$.post("/ashxx/Handler1.ashx", { "name": username, "pwd": userpwd }, function (num) {
-					if (num > 0) {
+				var code = $("#Codes_text").val();
+
+				$.post("/ashxx/Handler1.ashx", { "name": username, "pwd": userpwd, "Codes_text": code }, function (date) {
+					if (date > 0) {
 						window.location.href = "index.aspx?name=" + username;
 					}
 					else {
-						alert("账号或密码错误！")
+						alert(date);
                     }
 				});
 			});
@@ -100,18 +102,17 @@
 										<ul>
 											<li class="frame_style form_error"><label class="user_icon iconfont">&#xe620;</label><input name="" type="text" data-name="用户名" id="username" runat="server" /><i>用户名</i></li>
 											<li class="frame_style form_error"><label class="password_icon iconfont">&#xe625;</label><input name="" type="password" data-name="密码" id="userpwd" runat="server"  /><i>密码</i></li>
-											<li class="frame_style form_error"><label class="Codes_icon iconfont">&#xe624;</label><input name="" type="text" data-name="验证码" id="Codes_text" /><i>验证码</i>
-												<div class="Codes_region"><img src="images/yanzhengma.png" width="100%" height="38px" /></div>
-											</li>
+											<li class="frame_style form_error"><label class="Codes_icon iconfont">&#xe624;</label><input name="" type="text" data-name="验证码" id="Codes_text" runat="server" /><i>验证码</i>
+											<div class="Codes_region"><img src="ashxx/Handler2.ashx" width="100%" height="38px" title="看不清楚，点击更换验证码" /></div>	</li>
+											
+													
 										</ul>
-										<div class="space"></div>
 										<div class="clearfix">
 											<label class="inline">
-                                      <input type="checkbox" class="ace" />
-                                      <span class="lbl">保存密码</span>
+                                      <input type="checkbox" class="ace" />&nbsp;
                                   </label>
-                                            <asp:Button ID="Button1" runat="server" Text=" 登  陆 "  class="login_btn" OnClick="Button1_Click" />
-                                            <input id="btnLogin" type="button" value="AJAX登录"  />
+                                            <asp:Button ID="Button1" runat="server" Text=" 登  陆 "  class="login_btn" OnClick="Button1_Click" style="margin-top:22px;" />
+                                            <input id="btnLogin" type="button" value="AJAX登录"  class="login_btn"/>
                                             <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label>
 											<%--<button type="button" class="login_btn" id="login_btn"> 登&nbsp;陆 </button>--%>
 										</div>

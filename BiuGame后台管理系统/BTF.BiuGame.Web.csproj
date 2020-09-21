@@ -77,6 +77,7 @@
     <Content Include="json\brand.json" />
     <Content Include="json\pages.json" />
     <Content Include="ashxx\Handler1.ashx" />
+    <Content Include="ashxx\Handler2.ashx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -206,6 +207,9 @@
   <ItemGroup>
     <Compile Include="ashxx\Handler1.ashx.cs">
       <DependentUpon>Handler1.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashxx\Handler2.ashx.cs">
+      <DependentUpon>Handler2.ashx</DependentUpon>
     </Compile>
     <Compile Include="html\Addadmin.aspx.cs">
       <DependentUpon>Addadmin.aspx</DependentUpon>
