@@ -17,6 +17,7 @@ namespace BiuGame后台管理系统
         {
 
         }
+        
 
         protected void Button1_Click(object sender, EventArgs e)
         {

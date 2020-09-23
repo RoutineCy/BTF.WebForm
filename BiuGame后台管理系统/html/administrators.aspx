@@ -56,7 +56,7 @@
                 <div class="operation  mb15" style="">
                     <%--<asp:Button ID="btn1" runat="server" Text="新员工来啦！" CssClass="btn button_btn btn-danger" OnClick="Button1_Click" />--%>
                     <%--<input type="button" class="btn button_btn btn-danger" value="新员工来啦！" id="btn1" />--%>
-                    <asp:Button ID="Button1" runat="server" CssClass="btn button_btn btn-danger" Text="新员工来啦！" OnClick="Button1_Click1" />
+                    <asp:Button ID="Button1" runat="server" CssClass="btn button_btn btn-danger" Text="新员工" OnClick="Button1_Click1" />
                     <%--<div id="add" style="text-align:center;">
                         <asp:Label ID="Label1" runat="server" Text="员工账户："></asp:Label>
                         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
