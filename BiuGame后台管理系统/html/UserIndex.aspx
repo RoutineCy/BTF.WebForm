@@ -62,6 +62,9 @@
                                         <td>用户id </td>
                                         <td>账号名</td>
                                         <td>密码</td>
+                                        <td>性别</td>
+                                        <td>地区</td>
+                                        <td>手机</td>
                                         <td>余额</td>
                                         <td>操作</td>
                                     </tr>
@@ -78,6 +81,15 @@
                                     </td>
                                     <td>
                                         <%# Eval("userPwd") %>
+                                    </td>
+                                    <td>
+                                        <%# Eval("userSex") %>
+                                    </td>
+                                    <td>
+                                        <%# Eval("userSite") %>
+                                    </td>
+                                    <td>
+                                        <%# Eval("userTel") %>
                                     </td>
                                     <td>
                                         <%# Eval("uBalance") %>

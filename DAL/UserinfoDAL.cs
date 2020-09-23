@@ -15,5 +15,11 @@ namespace DAL
             string sql = "select * from Userinfo";
             return DBHelper.Query(sql);
         }
+
+        public static int Insert(Userinfo user)
+        {
+            string sql = $"insert into Userinfo values ('{user.userName}','{user.userPwd}',{user.userSex},'{user.userSite}','{user.userTel}',{user.uBalance})";
+            return DBHelper.ExecuteNonQuery(sql);
+        }
     }
 }
