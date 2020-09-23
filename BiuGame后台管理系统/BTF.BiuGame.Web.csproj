@@ -72,6 +72,7 @@
     <Content Include="html\Studio.aspx" />
     <Content Include="html\Game.aspx" />
     <Content Include="html\Gorder.aspx" />
+    <Content Include="html\UserIndex.aspx" />
     <Content Include="index.aspx" />
     <Content Include="index_home.aspx" />
     <Content Include="json\brand.json" />
@@ -266,6 +267,13 @@
     </Compile>
     <Compile Include="html\Gorder.aspx.designer.cs">
       <DependentUpon>Gorder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="html\UserIndex.aspx.cs">
+      <DependentUpon>UserIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="html\UserIndex.aspx.designer.cs">
+      <DependentUpon>UserIndex.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

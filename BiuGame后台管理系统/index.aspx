@@ -227,13 +227,13 @@
         icon: 'iconfont icon-system-copy',
         name: '系统管理',
     },
-    //{
-    //    id: 7,
-    //    pid: 0,
-    //    url: "",
-    //    icon: 'iconfont icon-yonghuguanli',
-    //    name: '用户信息',
-    //},
+    {
+        id: 7,
+        pid: 0,
+        url: "html/UserIndex.aspx",
+        icon: 'iconfont icon-yonghuguanli',
+        name: '用户信息',
+    },
     {
         id: 8,
         pid: 0,

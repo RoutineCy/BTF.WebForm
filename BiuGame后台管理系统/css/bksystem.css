@@ -664,7 +664,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
     padding: 7px 10px;
     display: inline-block;
     position: relative;
-    top: 0px;
+    top: 1px;
     margin-right: 10px;
     cursor: pointer;
     left: 2px;
