@@ -26,6 +26,18 @@ namespace Model
         public string userPwd { get; set; }
 
         /// <summary>
+        /// 性别
+        /// </summary>
+        public string userSex { get; set; }
+        /// <summary>
+        /// 地区
+        /// </summary>
+        public string userSite { get; set; }
+        /// <summary>
+        /// 手机
+        /// </summary>
+        public string userTel { get; set; }
+        /// <summary>
         /// 余额
         /// </summary>
         public double uBalance { get; set; }
