@@ -54,5 +54,23 @@ namespace DAL
             string sql = string.Format("insert into administrators values ('{0}','{1}')", aName, aPwd);
             return DBHelper.ExecuteNonQuery(sql);
         }
+
+        public static administrators SelectID(int id)
+        {
+            string sql = "select * from administrators where id =" + id;
+            DataTable dt = DBHelper.Query(sql);
+            return new administrators
+            {
+                id = Convert.ToInt32(dt.Rows[0]["id"]),
+                aName = Convert.ToString( dt.Rows[0]["aName"]),
+                aPwd = Convert.ToString(dt.Rows[0]["aPwd"])
+            };
+        }
+
+        public static int Update(administrators admin)
+        {
+            string sql = $"update administrators set aName='{admin.aName}',aPwd='{admin.aPwd}' where id={admin.id}";
+            return DBHelper.ExecuteNonQuery(sql);
+        }
     }
 }

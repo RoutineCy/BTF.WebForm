@@ -17,9 +17,9 @@ namespace DAL
             string sql = "select * from GType";
             return DBHelper.Query(sql);
         }
-        public static int Update(int id,string name)
+        public static int Update(int id, string name)
         {
-            string sql = string.Format("update GType set GcfName='{0}' where id={1}", name,id);
+            string sql = string.Format("update GType set GcfName='{0}' where id={1}", name, id);
             return DBHelper.ExecuteNonQuery(sql);
         }
 
@@ -32,8 +32,8 @@ namespace DAL
             //}
             //else
             //{
-                string sql = "delete from GType where id=" + id;
-                
+            string sql = "delete from GType where id=" + id;
+
             return DBHelper.ExecuteNonQuery(sql);
             //}
         }
@@ -48,5 +48,11 @@ namespace DAL
             return DBHelper.ExecuteNonQueryProc(sql, pams);
         }
 
+        public static int Update(GType gty)
+        {
+            string sql = $"update GType set name={gty.name} where id={gty.id}";
+            return DBHelper.ExecuteNonQuery(sql);
+
+        }
     }
 }

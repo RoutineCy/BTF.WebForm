@@ -34,6 +34,11 @@
             <div id="add" style="text-align:center; margin:0 auto">
                 <table style="text-align:center; margin:0 auto; margin-top:50px;">
                     <tr>
+                        <td></td>
+                        <td>
+                            <asp:Label ID="lalID" runat="server" Text=""></asp:Label></td>
+                    </tr>
+                    <tr>
                         <td>
 
                             <asp:Label ID="Label1" runat="server" Text="员工账户："></asp:Label>

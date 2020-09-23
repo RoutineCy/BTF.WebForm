@@ -18,6 +18,11 @@
         <div>
             <table style="margin:0 auto;">
                 <tr style="margin-bottom:5px;">
+                    <td>游戏编号：</td>
+                    <td>
+                        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                    </td>
+                </tr><tr>
                     <td>游戏名称：</td>
                     <td>
                         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
@@ -54,7 +59,10 @@
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align:center">
-                        <asp:Button ID="Button1" runat="server" Text="添加" CssClass="btn button_btn bg-deep-blue" OnClick="Button1_Click" /></td>
+                        <asp:Button ID="Button1" runat="server" Text="添加" CssClass="btn button_btn bg-deep-blue" OnClick="Button1_Click" />
+                        <%--<input id="btn1" type="button" value="添加" class="btn button_btn bg-deep-blue" />--%>
+
+                    </td>
                 </tr>
             </table>
         </div>

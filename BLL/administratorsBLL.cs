@@ -29,5 +29,13 @@ namespace BLL
         {
             return administratorsDAL.Insert(aName, aPwd);
         }
+        public static int Update(administrators admin)
+        {
+            return administratorsDAL.Update(admin);
+        }
+        public static administrators SelectID(int id)
+        {
+            return administratorsDAL.SelectID(id);
+        }
     }
 }

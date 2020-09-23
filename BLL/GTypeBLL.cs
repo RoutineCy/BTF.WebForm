@@ -27,5 +27,9 @@ namespace BLL
         {
             return GTypeDAL.InsertProc(name);
         }
+        public static int Update(GType gty)
+        {
+            return GTypeDAL.Update(gty);
+        }
     }
 }

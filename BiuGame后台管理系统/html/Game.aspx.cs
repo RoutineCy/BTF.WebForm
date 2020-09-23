@@ -85,6 +85,10 @@ namespace BiuGame后台管理系统.html
                     Repeater1.DataBind();
                 }
             }
+            if (name == "_upd")
+            {
+                    Response.Redirect("AddGame.aspx?id=" + id);
+            }
         }
 
         protected void Button2_Click(object sender, EventArgs e)

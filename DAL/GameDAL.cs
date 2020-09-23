@@ -175,5 +175,25 @@ namespace DAL
             string sql = string.Format("insert into Game values ({0},{1},'{2}',{3},{4})", gty.gTid, gty.gSId, gty.gName, gty.gPrice, gty.gState);
             return DBHelper.ExecuteNonQuery(sql);
         }
+
+        public static Game SelectID(int id)
+        {
+            string sqlsele = "select * from Game where id=" + id;
+            DataTable dt = DBHelper.Query(sqlsele);
+            return new Game
+            {
+                id = Convert.ToInt32(dt.Rows[0]["id"]),
+                gName = Convert.ToString(dt.Rows[0]["gName"]),
+                gPrice = Convert.ToInt32(dt.Rows[0]["gPrice"]),
+                gSId = Convert.ToInt32(dt.Rows[0]["gSId"]),
+                gState = Convert.ToInt32(dt.Rows[0]["gState"]),
+                gTid = Convert.ToInt32(dt.Rows[0]["gTid"])
+            };
+        }
+        public static int Update(Game gam)
+        {
+            string sql = $"update Game set gName='{gam.gName}',gPrice={gam.gPrice},gSId={gam.gSId},gState={gam.gState},gTid={gam.gTid} where id={gam.id}";
+            return DBHelper.ExecuteNonQuery(sql);
+        }
     }
 }

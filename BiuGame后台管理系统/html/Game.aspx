@@ -125,7 +125,8 @@
                                             <%# Convert.ToInt32(Eval("gState"))==0?"上架中":"已下架" %>
                                         </td>
                                         <td>
-                                            <asp:Button ID="Button2" runat="server" Text="删除" CommandName="_del" CommandArgument='<%# Eval("gtid") %>' OnClientClick='return confirm("是否删除该信息？")' />
+                                            <asp:Button ID="Button2" runat="server" Text="删除" CommandName="_del" CommandArgument='<%# Eval("id") %>' OnClientClick='return confirm("是否删除该信息？")' />
+                                            <asp:Button ID="Button3" runat="server" Text="编辑" CommandName="_upd" CommandArgument='<%# Eval("id") %>'  />
                                         </td>
                                     </tr>
                                 </tbody>

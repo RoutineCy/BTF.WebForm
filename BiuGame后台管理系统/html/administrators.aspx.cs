@@ -31,13 +31,15 @@ namespace BiuGame后台管理系统
             int id = Convert.ToInt32(e.CommandArgument);
             if (name == "_del")
             {
-                
                 if (administratorsBLL.Delete(id) >0)
                 {
                     Response.Write("<script>alert('删除成功!')</script>");
                     Repeater1.DataSource = administratorsBLL.Select();
                     Repeater1.DataBind();
                 }
+            }else if (name == "_upd")
+            {
+                Response.Redirect("/html/Addadmin.aspx?id=" + id);
             }
         }
 

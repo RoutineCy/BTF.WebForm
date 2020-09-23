@@ -95,7 +95,9 @@
                                     </td>
                                     <td>
                                         <asp:Button ID="Button2" runat="server" Text="删除" CommandName="_del" CommandArgument='<%# Eval("id") %>' OnClientClick='return confirm("是否删除该信息？")' />
+                                        <asp:Button ID="btnUpd" runat="server" Text="修改" CommandName="_upd" CommandArgument='<%# Eval("id") %>'  />
                                     </td>
+                                    
                                 </tr>
                             </tbody>
                         </ItemTemplate>

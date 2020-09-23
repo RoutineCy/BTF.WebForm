@@ -27,5 +27,14 @@ namespace BLL
         {
             return GameDAL.Insert(gty);
         }
+
+        public static Game SelectID(int id)
+        {
+            return GameDAL.SelectID(id);
+        }
+        public static int Update(Game gam)
+        {
+            return GameDAL.Update(gam);
+        }
     }
 }
