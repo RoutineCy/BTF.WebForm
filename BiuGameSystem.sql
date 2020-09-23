@@ -45,6 +45,9 @@ create table Userinfo
 	id int primary key identity(1,1),--用户id
 	userName varchar(64) not null,--账号名
 	userPwd varchar(64) not null,--密码
+	userSex bit not null,--用户性别
+	userSite varchar(50) not null,--用户地区
+	userTel varchar(11),--用户手机号
 	uBalance float default(0) not null--余额
 )
 go
@@ -139,11 +142,11 @@ insert into Game values (2,10,'英雄联盟',198,default)
 insert into Game values (2,10,'符文大地传奇',198,1)
 go
 
-insert into Userinfo values ('user1','123',default)
-insert into Userinfo values ('user2','123',default)
-insert into Userinfo values ('user3','123',default)
-insert into Userinfo values ('user4','123',default)
-insert into Userinfo values ('user5','123',default)
+insert into Userinfo values ('user1','123',1,'河南省郑州市金水区','15556846154',default)
+insert into Userinfo values ('user2','123',0,'河南省郑州市二七区','15557896159',default)
+insert into Userinfo values ('user3','123',1,'河南省洛阳市西工区','15556852547',default)
+insert into Userinfo values ('user4','123',0,'河南省洛阳市老城区','15556846152',default)
+insert into Userinfo values ('user5','123',1,'河南省郑州市中原区','15553688153',default)
 go
 --订单
 insert into Gorder values (1,1,GETDATE())
