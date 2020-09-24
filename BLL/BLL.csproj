@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="administratorsBLL.cs" />
+    <Compile Include="AreaBLL.cs" />
     <Compile Include="commentBLL.cs" />
     <Compile Include="libraryBLL.cs" />
     <Compile Include="GameBLL.cs" />

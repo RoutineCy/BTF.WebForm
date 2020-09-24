@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 namespace BiuGame后台管理系统
 {
     public class DBHelper
-    {
+    {   
         
 
         //连接数据库字符串

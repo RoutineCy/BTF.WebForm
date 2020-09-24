@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="administratorsDAL.cs" />
+    <Compile Include="AreaDAL.cs" />
     <Compile Include="commentDAL.cs" />
     <Compile Include="libraryDAL.cs" />
     <Compile Include="GameDAL.cs" />
