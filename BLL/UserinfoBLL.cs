@@ -19,6 +19,9 @@ namespace BLL
         {
             return UserinfoDAL.Insert(user);
         }
-
+        public static int Update(Userinfo user)
+        {
+            return UserinfoDAL.Update(user);
+        }
     }
 }

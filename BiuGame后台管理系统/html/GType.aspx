@@ -68,8 +68,8 @@
                     <%--<asp:Button ID="Button2" runat="server" Text="编辑分类" CssClass="btn button_btn bg-deep-blue"  />--%>
                     <%--<button class="btn button_btn bg-deep-gray" type="button" onclick=""><i class="iconfont"></i>&nbsp;删除分类</button>--%>
                     <%--<asp:Button ID="Button3" runat="server" Text="删除分类"  CssClass="btn button_btn bg-deep-blue" />--%>
-                    分类名称：<asp:TextBox ID="txtTypeName" runat="server"></asp:TextBox>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%--分类名称：<asp:TextBox ID="txtTypeName" runat="server"></asp:TextBox>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
                     <asp:Button ID="Button1" runat="server" Text="添加分类" CssClass="btn button_btn btn-danger" OnClick="Button1_Click" />
                 </div>
                 <!--列表内容-->
@@ -96,6 +96,7 @@
                                     </td>
                                     <td>
                                         <asp:Button ID="Button2" runat="server" Text="删除" CommandName="_del" CommandArgument='<%# Eval("id") %>' OnClientClick='return confirm("是否删除该信息？")' />
+                                        <asp:Button ID="Button3" runat="server" Text="修改" CommandName="_upd" CommandArgument='<%# Eval("id") %>' />
                                     </td>
                                 </tr>
                             </tbody>

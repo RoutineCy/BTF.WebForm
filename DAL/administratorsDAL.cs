@@ -70,7 +70,9 @@ namespace DAL
         public static int Update(administrators admin)
         {
             string sql = $"update administrators set aName='{admin.aName}',aPwd='{admin.aPwd}' where id={admin.id}";
+
             return DBHelper.ExecuteNonQuery(sql);
         }
+        
     }
 }

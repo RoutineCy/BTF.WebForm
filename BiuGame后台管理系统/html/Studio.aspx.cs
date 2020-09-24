@@ -41,6 +41,10 @@ namespace BiuGame后台管理系统.html
                     Repeater1.DataBind();
                 }
             }
+            else if(name == "_upd")
+            {
+                Response.Redirect("AddStudio.aspx?id="+id);
+            }
         }
     }
 }

@@ -21,15 +21,7 @@ namespace BiuGame后台管理系统.html
         {
             //Response.Write("<script>alert('暂无添加新分类功能')</script>");
             //获取名称
-            var tname = txtTypeName.Text;
-            if (GTypeBLL.InsertProc(tname) > 0)
-            {
-                Response.Write("<script>alert('添加分类成功！')</script>");
-                //刷新
-                Repeater1.DataSource = GTypeBLL.Select();
-                Repeater1.DataBind();
-                txtTypeName.Text = "";
-            }
+            Response.Redirect("AddGType.aspx");
         }
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -38,13 +30,17 @@ namespace BiuGame后台管理系统.html
             int id = Convert.ToInt32(e.CommandArgument);
             if (name == "_del")
             {
-
                 if (GTypeBLL.Delete(id) > 0)
                 {
                     Response.Write("<script>alert('删除成功!')</script>");
                     Repeater1.DataSource = GTypeBLL.Select();
                     Repeater1.DataBind();
                 }
+            }
+            else if (name == "_upd")
+            {
+                Response.Redirect("AddGType.aspx?id=" + id);
+
             }
         }
     }

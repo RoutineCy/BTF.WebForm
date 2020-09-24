@@ -20,6 +20,14 @@
                 <caption>新增厂商</caption>
                 <tr>
                     <td>
+                        
+                    </td>
+                    <td>
+                        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>  
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         厂商名称：
                     </td>
                     <td>

@@ -25,5 +25,14 @@ namespace BLL
         {
             return StudioDAL.Insert(stu);
         }
+        public static Studio SelectID(int id)
+        {
+            return StudioDAL.SelectID(id);
+        }
+
+        public static int Update(Studio stu)
+        {
+            return StudioDAL.Update(stu);
+        }
     }
 }

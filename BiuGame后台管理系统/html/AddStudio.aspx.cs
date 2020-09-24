@@ -13,7 +13,19 @@ namespace BiuGame后台管理系统.html
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                int id = Convert.ToInt32(Request.QueryString["id"]);
+                if (id != 0)
+                {
+                    Button1.Text = "修改";
+                    Model.Studio stu = StudioBLL.SelectID(id);
 
+                    Label1.Text = stu.id.ToString();
+                    txtStuName.Text = stu.sName;
+                    txtStuTel.Text = stu.sTel;
+                }
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -25,10 +37,21 @@ namespace BiuGame后台管理系统.html
             Studio stu = new Studio();
             stu.sName = stuName;
             stu.sTel = StuTel;
+            stu.id = Convert.ToInt32(Label1.Text);
             //调用方法
-            if (StudioBLL.Insert(stu) > 0)
+            if (Button1.Text == "添加")
             {
-                Response.Write("<script>alert('添加成功！');location.href='/html/Studio.aspx'</script>");
+                if (StudioBLL.Insert(stu) > 0)
+                {
+                    Response.Write("<script>alert('添加成功！');location.href='/html/Studio.aspx'</script>");
+                }
+            }
+            if(Button1.Text == "修改")
+            {
+                if (StudioBLL.Update(stu) > 0)
+                {
+                    Response.Write("<script>alert('修改成功！');location.href='/html/Studio.aspx'</script>");
+                }
             }
         }
     }

@@ -156,3 +156,57 @@ go
 --print @TotalCount
 
 --'select * from( select ROW_NUMBER() over(order by id) as RomNum , * from [Game] where 1=1'+@strWhere+' ) as t where t.RomNum between '+CONVERT(NVARCHAR(32),((@PageIndex-1)*@PageSize+1))+'  and '+CONVERT(NVARCHAR(32),(@PageIndex*@PageSize)) 
+
+
+--修改	游戏表
+create proc Game_Updane
+(
+	@id int,
+	@gTid int,
+	@gSId int,
+	@gName varchar(128),
+	@gPrice float ,
+	@gState int
+)
+as 
+update Game set gName=@gName,gPrice=@gPrice,gSId=@gSId,gState=@gState,gTid=@gTid where id=@id
+go
+
+
+--修改	管理员表
+create proc administrators_Updane
+(
+	@id int,
+	@aName varchar(64),
+	@aPwd varchar(64)
+)
+as 
+update administrators set aName=@aName,aPwd=@aPwd where id=@id
+go
+
+
+--修改	用户表
+create proc Userinfo_Updane
+(
+	@id int ,--用户id
+	@userName varchar(64),--账号名
+	@userPwd varchar(64),--密码
+	@userSex bit,--用户性别
+	@userSite varchar(50),--用户地区
+	@userTel varchar(11),--用户手机号
+	@uBalance float--余额
+)
+as 
+update Userinfo set userName=@userName,userPwd=@userPwd,userSex=@userSex,userSite=@userSite,userTel=@userTel,uBalance=@uBalance where id=@id
+go
+
+--修改	厂商表
+create proc Studio_Update
+(
+	@id int,--游戏厂商id
+	@sName varchar(64),--厂家名称
+	@sTel varchar(64)--联系方式
+)
+as 
+update Studio set sName=@sName,sTel=@sTel where id=@id
+go

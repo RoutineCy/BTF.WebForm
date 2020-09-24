@@ -31,5 +31,9 @@ namespace BLL
         {
             return GTypeDAL.Update(gty);
         }
+        public static GType SelectID(int id)
+        {
+            return GTypeDAL.SelectID(id);
+        }
     }
 }

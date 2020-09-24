@@ -63,6 +63,7 @@
   <ItemGroup>
     <Content Include="html\Addadmin.aspx" />
     <Content Include="html\AddGame.aspx" />
+    <Content Include="html\AddGType.aspx" />
     <Content Include="html\AddStudio.aspx" />
     <Content Include="html\administrators.aspx" />
     <Content Include="font\iconfont.eot" />
@@ -225,6 +226,13 @@
     </Compile>
     <Compile Include="html\AddGame.aspx.designer.cs">
       <DependentUpon>AddGame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="html\AddGType.aspx.cs">
+      <DependentUpon>AddGType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="html\AddGType.aspx.designer.cs">
+      <DependentUpon>AddGType.aspx</DependentUpon>
     </Compile>
     <Compile Include="html\AddStudio.aspx.cs">
       <DependentUpon>AddStudio.aspx</DependentUpon>

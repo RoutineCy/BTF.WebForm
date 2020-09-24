@@ -48,11 +48,21 @@ namespace DAL
             return DBHelper.ExecuteNonQueryProc(sql, pams);
         }
 
+        public static GType SelectID(int id)
+        {
+            string sql = "select * from GType where id=" + id;
+            DataTable dt = DBHelper.Query(sql);
+            return new GType
+            {
+                id = Convert.ToInt32(dt.Rows[0]["id"]),
+                name = Convert.ToString(dt.Rows[0]["name"])
+            };
+        }
+
         public static int Update(GType gty)
         {
             string sql = $"update GType set name={gty.name} where id={gty.id}";
             return DBHelper.ExecuteNonQuery(sql);
-
         }
     }
 }
