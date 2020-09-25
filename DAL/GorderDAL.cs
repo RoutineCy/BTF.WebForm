@@ -17,7 +17,7 @@ namespace DAL
         public static int Delete (int id)
         {
             string sql = "delete from Gorder where id ="+id;
-            return DBHelper.ExecuteNonQueryProc(sql);
+            return DBHelper.ExecuteNonQuery(sql);
 
         }
     }

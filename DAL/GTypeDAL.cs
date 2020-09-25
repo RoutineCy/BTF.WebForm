@@ -61,7 +61,7 @@ namespace DAL
 
         public static int Update(GType gty)
         {
-            string sql = $"update GType set name={gty.name} where id={gty.id}";
+            string sql = $"update GType set name='{gty.name}' where id={gty.id}";
             return DBHelper.ExecuteNonQuery(sql);
         }
     }
