@@ -108,11 +108,11 @@
 													
 										</ul>
 										<div class="clearfix">
-                                            <asp:Button ID="Button1" runat="server" Text=" 登  陆 "  class="login_btn" OnClick="Button1_Click"  />
+                                            <asp:Button ID="Button1" runat="server" Text=" 用户登陆 "  class="login_btn" OnClick="Button1_Click"  />
 											<label class="inline">
                                       <input type="checkbox" class="ace" />&nbsp;
                                   </label>
-                                            <input id="btnLogin" type="button" value="AJAX登录"  class="login_btn"/>
+                                            <input id="btnLogin" type="button" value="管理员登录"  class="login_btn"/>
                                             <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label>
 											<%--<button type="button" class="login_btn" id="login_btn"> 登&nbsp;陆 </button>--%>
 										</div>

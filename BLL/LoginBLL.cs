@@ -13,5 +13,9 @@ namespace BLL
         {
             return LoginDAL.Select(name, pwd);
         }
+        public static Userinfo SelectUser(string name, string pwd)
+        {
+            return LoginDAL.SelectUser(name, pwd);
+        }
     }
 }

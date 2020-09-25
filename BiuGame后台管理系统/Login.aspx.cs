@@ -25,17 +25,17 @@ namespace BiuGame后台管理系统
             var pwd = userpwd.Value;
             string validate = Codes_text.Value.Trim();
 
-            Model.administrators administrators = LoginBLL.Select(name, pwd);
+            Userinfo user = LoginBLL.SelectUser(name, pwd);
 
 
-            if (administrators == null)
+            if (user == null)
             {
                 Label1.Text = "账号或密码不正确";
                 username.Value = "";
             }
             else
             {
-                Response.Redirect("index.aspx?name=" + administrators.aName);
+                Response.Redirect("http://localhost:60991/Index.aspx?name=" + user.userName);
             }
 
         }

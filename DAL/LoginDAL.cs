@@ -34,5 +34,34 @@ namespace DAL
 
             return user;
         }
+
+        public static Userinfo SelectUser(string name,string pwd)
+        {
+            string sql = "select * from [Userinfo] where userName=@userName and userPwd=@userPwd";
+            SqlParameter[] pams =
+            {
+                new SqlParameter ("@userName",name),
+                new SqlParameter ("@userPwd",pwd)
+            };
+            SqlDataReader reader = DBHelper.ExecuteReader(sql, pams);
+
+            Userinfo user = null;
+            if (reader.Read())
+            {
+                user = new Userinfo()
+                {
+                    id = Convert.ToInt32(reader["id"]),
+                    userName = Convert.ToString(reader["userName"]),
+                    userPwd = Convert.ToString(reader["userPwd"]),
+                    userSex = Convert.ToString(reader["userSex"]),
+                    userSite = Convert.ToString(reader["userSite"]),
+                    userTel = Convert.ToString(reader["userTel"]),
+                    uBalance = Convert.ToDouble(reader["uBalance"])
+                };
+            }
+            reader.Close();
+
+            return user;
+        }
     }
 }
