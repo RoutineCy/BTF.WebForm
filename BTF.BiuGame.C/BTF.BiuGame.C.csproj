@@ -66,6 +66,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="colorbox\colorbox.css" />
+    <Content Include="colorbox\images\border.png" />
+    <Content Include="colorbox\images\controls.png" />
+    <Content Include="colorbox\images\loading.gif" />
+    <Content Include="colorbox\images\loading_background.png" />
+    <Content Include="colorbox\images\overlay.png" />
+    <Content Include="colorbox\jquery.colorbox.js" />
     <Content Include="Index.aspx" />
     <Content Include="jquery-1.9.1.min.js" />
     <Content Include="NewUser.aspx" />
